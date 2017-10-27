@@ -62,6 +62,9 @@ public class Empleado implements Serializable {
         this.nombre = nombre;
         this.email = email;
         this.fechaNacimiento = fechaNacimiento;
+        for(int i = 0; i < 5; ++i){
+
+        }
     }
 
     public Empleado(Long l) {
@@ -155,5 +158,4 @@ public class Empleado implements Serializable {
                 ", telefono=" + telefono +
                 '}';
     }
-
 }

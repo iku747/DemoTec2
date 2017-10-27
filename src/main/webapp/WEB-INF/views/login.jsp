@@ -26,7 +26,6 @@
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
             <span><c:out value="${error}"></c:out></span>
             <div class="form-group">
-                <button color="purple" class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
                 <h4 class="text-center"><a href="${contextPath}/usuarios/register">Crear cuenta</a></h4>
             </div>
         </form>
