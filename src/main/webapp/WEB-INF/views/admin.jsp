@@ -51,7 +51,7 @@
                 <!-- ./col -->
                 <div class="col-lg-2 col-xs-6">
                     <!-- small box ORGANIZADORES-->
-                    <div class="small-box bg-light-blue">
+                    <div class="small-box bg-light-purple">
                         <div class="inner">
                             <h3><c:out value="${fn:length(listaOrganizadores)}"></c:out></h3>
                             <p>Nº de Organizadores</p>
@@ -64,7 +64,7 @@
                 <!-- ./col -->
                 <div class="col-lg-2 col-xs-6">
                     <!-- small box USUARIOS-->
-                    <div class="small-box bg-blue">
+                    <div class="small-box bg-purple">
                         <div class="inner">
                             <h3><c:out value="${fn:length(listaProveedores)}"></c:out></h3>
                             <p>Nº de Proveedores</p>

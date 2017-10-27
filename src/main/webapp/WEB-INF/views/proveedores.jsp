@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!-- Content Wrapper. Contains page content -->
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-purple sidebar-mini">
     <div class="wrapper">
 
         <%@ include file="../fragments/header.jspf" %>
@@ -273,7 +273,7 @@
                                             <li><i class="fa fa-circle-o text-green"></i> Bautizos</li>
                                             <li><i class="fa fa-circle-o text-yellow"></i> Fiestas</li>
                                             <li><i class="fa fa-circle-o text-aqua"></i> Concentraciones</li>
-                                            <li><i class="fa fa-circle-o text-light-blue"></i> Refrescos</li>
+                                            <li><i class="fa fa-circle-o text-light-purple"></i> Refrescos</li>
                                             <li><i class="fa fa-circle-o text-gray"></i> Viajes </li>
                                         </ul>
                                     </div>

@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <!-- Content Wrapper. Contains page content -->
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-purple sidebar-mini">
 <div class="wrapper">
 
     <%@ include file="../fragments/header.jspf" %>
@@ -167,8 +167,8 @@
         //Enable iCheck plugin for checkboxes
         //iCheck for checkbox and radio inputs
         $('.mailbox-messages input[type="checkbox"]').iCheck({
-            checkboxClass: 'icheckbox_flat-blue',
-            radioClass: 'iradio_flat-blue'
+            checkboxClass: 'icheckbox_flat-purple',
+            radioClass: 'iradio_flat-purple'
         });
 
         //Enable check and uncheck all functionality

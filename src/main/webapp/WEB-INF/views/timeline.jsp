@@ -2,7 +2,7 @@
 <%@ include file="../fragments/head.jspf" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-purple sidebar-mini">
 <div class="wrapper">
 
   <%@ include file="../fragments/header.jspf" %>

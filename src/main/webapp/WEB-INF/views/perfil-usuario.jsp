@@ -3,7 +3,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="springForm"%>
 
 <!-- Content Wrapper. Contains page content -->
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-purple sidebar-mini">
 <div class="wrapper">
 
     <%@ include file="../fragments/header.jspf" %>
