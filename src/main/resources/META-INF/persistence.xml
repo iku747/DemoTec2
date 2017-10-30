@@ -31,7 +31,6 @@
 
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect" />
 
-
             <!--HSQLDB-LOCAL-->
 
             <!--
