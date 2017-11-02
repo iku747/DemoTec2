@@ -6,7 +6,7 @@
 <body class="hold-transition register-page">
 <div class="register-box">
     <div class="register-logo">
-        <img src="<c:url value="/resources/dist/img/icono_transparente.png" />" />
+        <img src="<c:url value="/resources/dist/img/icono_tecnatom.png" />" />
     </div>
 
     <div class="register-box-body">
