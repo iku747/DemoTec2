@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Probando CORS en local</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $.ajax({
+                    url: "https://localhost:8443/eventos/ultimo"
+                }).then(function(data, status) {
+                    $('.id').append(data.id);
+                    $('.nombre').append(data.nombre);
+                    $('.descripcion').append(data.descripcion);
+                    $('.categoria').append(data.categoria);
+                    $('.lugar').append(data.lugar);
+                });
+            });
+        </script>
+    </head>
+
+    <body>
+         <h1>Una prueba de CORS</h1>
+         <p>Este es el &uacute;ltimo evento de Tecnatom</p>
+         <p class="id">La ID del evento es </p>
+         <p class="nombre">El nombre del evento es </p>
+         <p class="descripcion">La descripci&oacute;n del evento es </p>
+         <p class="categoria">La categor&iacute;a del evento es </p>
+         <p class="lugar">El lugar del evento es </p>
+    </body>
+</html>

@@ -25,7 +25,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
+                .cors()
+                    .and()
                 .authorizeRequests()
+                    .antMatchers("/eventos/ultimo").hasIpAddress("127.0.0.1")
                     .antMatchers("/usuarios/register").anonymous()
                     .antMatchers("/usuarios/tipoUsuario").anonymous()
                     .antMatchers("/usuarios/registrar_*").anonymous()

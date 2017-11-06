@@ -195,6 +195,7 @@ public String eventoCalendario(Model model) {
         return new ResponseEntity<>((Evento)contex.getDatos(), HttpStatus.OK);
     }
 
+    @CrossOrigin(origins = "http://localhost:63342")
     @RequestMapping(value = "/ultimo",  method = RequestMethod.GET, produces = "application/json")
     public @ResponseBody ResponseEntity<Evento> ultimo(Model model) {
         Contexto contex;
