@@ -163,6 +163,11 @@ public class FactoriaComandosImp extends FactoriaComandos {
             case BUSCAR_EVENTO:
                 miComando = new ComandoBuscarEvento();
                 break;
+
+            case SACAR_ULTIMO:
+                miComando = new ComandoSacarUltimo();
+                break;
+
             case MODIFICAR_EVENTO:
                 miComando = new ComandoModificarEvento();
                 break;

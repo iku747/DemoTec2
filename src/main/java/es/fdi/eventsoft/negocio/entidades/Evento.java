@@ -15,6 +15,7 @@ import java.util.List;
 @Entity
 @Table(name = "Eventos")
 @NamedQueries({
+        @NamedQuery(name = "Evento.descendente", query = "from Evento e order by e.id DESC"),
         @NamedQuery(name = "Evento.buscarEventosPorUsuario", query = "from Evento e join fetch e.cliente join fetch e.organizador where e.cliente = :cliente"),
         @NamedQuery(name = "Evento.buscarEventosPorUsuario_2", query = "from Evento e join fetch e.organizador join fetch e.cliente where e.organizador = :organizador"),
         @NamedQuery(name = "Evento.EventosDeServicioConFechaFinMayorA",

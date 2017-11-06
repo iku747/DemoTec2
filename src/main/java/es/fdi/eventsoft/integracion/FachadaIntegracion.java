@@ -90,7 +90,7 @@ public interface FachadaIntegracion<T> {
          */
         List ejecutarNamedQuery(String nameQuery, List<Pair<String, Object>> params);
 
-
+        List ejecutarNamedQueryUno(String nameQuery);
 
         /**
          * Inicio de una nueva transacción

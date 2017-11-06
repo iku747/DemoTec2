@@ -152,6 +152,25 @@ public class SAEventosImp implements SAEventos {
 
         return evento;
     }
+
+    @Override
+    public Evento sacarUltimo() {
+        List<Evento> lista = new ArrayList<Evento>();
+        FachadaIntegracion fachadaIntegracion = FachadaIntegracion.newInstance(Evento.class);
+
+        fachadaIntegracion.begin();
+        lista = fachadaIntegracion.ejecutarNamedQueryUno("Evento.descendente");
+        fachadaIntegracion.commit();
+
+        for(Evento ev: lista) {
+            ev.setOrganizador(null);
+            ev.setCliente(null);
+            ev.setEventoServicios(null);
+        }
+
+        return lista.get(0);
+    }
+
     @Override
     public Evento buscarEventoParaModificar(Long id) {
         FachadaIntegracion fachadaIntegracion = FachadaIntegracion.newInstance(Evento.class);

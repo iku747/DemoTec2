@@ -89,6 +89,7 @@ public enum EventosNegocio {
     ERROR_CREAR_EVENTO,
 
     BUSCAR_EVENTO,
+    SACAR_ULTIMO,
     ERROR_BUSCAR_EVENTO,
 
     MODIFICAR_EVENTO,

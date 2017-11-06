@@ -114,6 +114,12 @@ public class ServicioIntegracionImp<T> implements FachadaIntegracion<T> {
         return q.getResultList();
     }
 
+    public List ejecutarNamedQueryUno(String nameQuery){
+        Query q = em.createNamedQuery(nameQuery);
+
+        return q.setMaxResults(1).getResultList();
+    }
+
     /**
      * @see FachadaIntegracion<T>{@link #getRowCount()}
      */
