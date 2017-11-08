@@ -247,12 +247,27 @@ public String eventoCalendario(Model model) {
     }
 
     @RequestMapping(value = "/eliminar/{id}", method = RequestMethod.GET)
-    public String eliminarEvento(@PathVariable("id") Long id, Model model) {
+    public String eliminarEvento(@PathVariable("id") Long id, Model model, HttpSession session) {
         if (id > 0) {
-            Contexto contexto = FactoriaComandos.getInstance().crearComando(ELIMINAR_EVENTO).execute(id);
 
-            if (contexto.getEvento() == ELIMINAR_EVENTO) {
-                return "redirect:../timeline";
+            Usuario user = FactoriaSA.getInstance().crearSAUsuarios().buscarUsuarioByEmail(((Usuario) session.getAttribute("usuario")).getEmail());
+            List<Evento> events = FactoriaSA.getInstance().crearSAEventos().buscarEventosByUsuario(user);
+            Evento event = null;
+
+            for(Evento search : events){
+                if(search.getId()==id){
+                    event = search;
+                }
+            }
+
+            if(event != null){
+                Contexto contexto = FactoriaComandos.getInstance().crearComando(ELIMINAR_EVENTO).execute(id);
+
+                if (contexto.getEvento() == ELIMINAR_EVENTO) {
+                    return "redirect:../timeline";
+                } else {
+                    return "error-500";
+                }
             } else {
                 return "error-500";
             }
