@@ -20,7 +20,7 @@
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
             </div>
             <div class="form-group ${error != null ? 'has-error' : ''}">
-                <input type="password" name="password" class="form-control" placeholder="Contraseña" value="" />
+                <input type="password" name="password" class="form-control" placeholder="Contraseña" value="" autocomplete="off"/>
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
