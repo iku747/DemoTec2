@@ -207,12 +207,26 @@ public String eventoCalendario(Model model) {
     }
 
     @RequestMapping(value = "/vista-modificar/{idEvento}", method = RequestMethod.GET)
-    public String vistaModificarEvento(@PathVariable Long idEvento, Model model) {
-        Contexto contex = FactoriaComandos.getInstance().crearComando(BUSCAR_EVENTO).execute(idEvento);
-        model.addAttribute("eventoAModificar", (Evento) contex.getDatos());
-        model.addAttribute("CategoriasEvento", Evento.CategoriasEvento.values());
+    public String vistaModificarEvento(@PathVariable Long idEvento, Model model, HttpSession session) {
+        Usuario user = FactoriaSA.getInstance().crearSAUsuarios().buscarUsuarioByEmail(((Usuario) session.getAttribute("usuario")).getEmail());
+        List<Evento> events = FactoriaSA.getInstance().crearSAEventos().buscarEventosByUsuario(user);
+        Evento event = null;
 
-        return "modificar-evento";
+        for(Evento search : events){
+            if(search.getId()==idEvento){
+                event = search;
+            }
+        }
+
+        if(event!=null){
+            Contexto contex = FactoriaComandos.getInstance().crearComando(BUSCAR_EVENTO).execute(idEvento);
+            model.addAttribute("eventoAModificar", (Evento) contex.getDatos());
+            model.addAttribute("CategoriasEvento", Evento.CategoriasEvento.values());
+
+            return "modificar-evento";
+        }else{
+            return "error-500";
+        }
     }
 
     @RequestMapping(value = "/modificar", method = RequestMethod.POST)
