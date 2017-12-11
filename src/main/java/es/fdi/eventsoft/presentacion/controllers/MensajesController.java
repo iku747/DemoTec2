@@ -5,6 +5,7 @@ import es.fdi.eventsoft.negocio.comandos.EventosNegocio;
 import es.fdi.eventsoft.negocio.comandos.factoria.FactoriaComandos;
 import es.fdi.eventsoft.negocio.entidades.Mensaje;
 import es.fdi.eventsoft.negocio.entidades.usuario.Usuario;
+import es.fdi.eventsoft.negocio.servicios.factoria.FactoriaSA;
 import javafx.util.Pair;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -191,16 +192,24 @@ public class MensajesController {
     }
 
     @RequestMapping(value = "/ver/{id}", method = RequestMethod.GET)
-    public String ver(@PathVariable("id") Long id, Model model) {
+    public String ver(@PathVariable("id") Long id, Model model, HttpSession session) {
         if (id > 0) {
-            Contexto contexto = FactoriaComandos.getInstance().crearComando(EventosNegocio.BUSCAR_MENSAJE).execute(id);
+            Usuario user = FactoriaSA.getInstance().crearSAUsuarios().buscarUsuarioByEmail(((Usuario) session.getAttribute("usuario")).getEmail());
+            Mensaje men = FactoriaSA.getInstance().crearSAMensajes().buscarMensaje(id);
 
-            if (contexto.getEvento() == EventosNegocio.BUSCAR_MENSAJE) {
-                model.addAttribute("mensaje", contexto.getDatos());
-                return "leer-mensaje";
+            if(user.getId() == men.getEmisor().getId() || user.getId() == men.getReceptor().getId()){
+                Contexto contexto = FactoriaComandos.getInstance().crearComando(EventosNegocio.BUSCAR_MENSAJE).execute(id);
+
+                if (contexto.getEvento() == EventosNegocio.BUSCAR_MENSAJE) {
+                    model.addAttribute("mensaje", contexto.getDatos());
+                    return "leer-mensaje";
+                } else {
+                    return "error-500";
+                }
             } else {
                 return "error-500";
             }
+
         }
 
         return "redirect:/index";
